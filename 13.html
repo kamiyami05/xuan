@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tra  cứu điểm</title>
+    <link rel="stylesheet" href="js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script>
+       
+        function ctof() {
+            var C = document.getElementById('nhietdo').value;
+            var F = document.getElementById('nhietdo').value;
+            document.getElementById('kq').innerHTML = parseFloat(C) * 1.8 +32;
+        }
+        function ftoc() {
+            var C = document.getElementById('nhietdo').value;
+            var F = document.getElementById('nhietdo').value;
+            document.getElementById('kq').innerHTML = (parseFloat(F)-32)/1.8;
+        }
+
+        function tinh() {
+            var toan = parseFloat(document.getElementById('toan').value);
+            var ly = parseFloat(document.getElementById('ly').value);
+            var hoa = parseFloat(document.getElementById('hoa').value);
+            var kq = (toan + ly + hoa)/3;           
+            var loai
+            if (kq <=8) {
+                loai = 'A'
+            }else if (kq <=7) {
+                loai = 'B'
+            }else if (kq <=6) {
+                loai = 'C'
+                loai = 'B'
+            }else if (kq <=5) {
+                loai = 'C'
+            }else {
+                loai = 'E'
+            }
+            document.getElementById('dtb').innerHTML = kq;
+            document.getElementById('loai').innerHTML = loai;
+
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>doi nhiet do</legend>
+        <form>
+            <input type="text" id="nhietdo">
+            <br>
+            <button type="button" onclick="ctof()">C to F</button>
+            <button type="button" onclick="ftoc()">F to C</button>
+            <br>
+            <span id="kq"></span>
+        </form>
+    </fieldset>
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <fieldset>
+                    <legend>Rank</legend>
+                    <form>
+                        math score:<input type="text" id="toan" class="form-control" placeholder="enter your score">
+                        <br>
+                        physics score"<input type="text" id="ly" class="form-control" placeholder="enter your score">
+                        <br>
+                        chemystry score:<input type="text" id="hoa" class="form-control" placeholder="enter your score">
+                        <br>
+                        <button type="button" onclick="tinh()">Count</button>
+                        <hr>
+                        ĐTB: <span id="dtb" style="font-size: 30;"></span>
+                        <br>
+                        loại: <span id="loai" style="font-size: 30;"></span>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
